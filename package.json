@@ -1,9 +1,9 @@
 {
-	"name": "insurancenow-demo",
+	"name": "",
 	"version": "1.0.0",
 	"main": "index.html",
 	"homepage": "./",
-	"repository": "https://github.com/austinspaeth/insurancenow-demo.git",
+	"repository": "https://github.com/austinspaeth/",
 	"author": "Austin Spaeth <austinspaeth@msn.com>",
 	"private": true,
 	"scripts": {

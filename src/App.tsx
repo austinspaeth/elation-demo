@@ -5,10 +5,6 @@ import { connect } from 'react-redux';
 import {  } from './redux/Actions';
 
 // VIEWS //
-import Header from './views/Header';
-import Sidebar from './views/Sidebar';
-import Content from './views/Content';
-import Policy from './views/policy/Policy';
 
 // COMPONENTS //
 import { ThemeProvider } from 'styled-components';
@@ -24,24 +20,10 @@ type TSProps = {
 const App:FunctionComponent<TSProps> = (props) => {
 
     switch(props.view){
-        case 'policy':
-            return (
-                <ThemeProvider theme={props.theme}>
-					<Header/>
-                    <Sidebar />
-                    <Content>
-                        <Policy />
-                    </Content>
-                </ThemeProvider>
-            );
         default:
             return (
                 <ThemeProvider theme={props.theme}>
-					<Header/>
-                    <Sidebar />
-                    <Content>
-                        No idea how you made it here!
-                    </Content>
+				
                 </ThemeProvider>
             );
     }
