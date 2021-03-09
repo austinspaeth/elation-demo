@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 // COMPONENTS //
 import styled from 'styled-components';
+import PassportPreview from './sidebar/PassportPreview';
 
 type TSProps = {
 	theme:string
@@ -13,20 +14,33 @@ type TSProps = {
 const Sidebar:FunctionComponent<TSProps> = (props) => {
 
 	return (
-		<Container>
-		
-		</Container>
+		<SidebarContainer>
+            <PassportPreview />
+		</SidebarContainer>
 	)
 }
 
 // STYLED COMPONENTS //
-const Container = styled.div({
-    height: '100%',
-    width: '100%',
-    position:'fixed',
+const SidebarContainer = styled.div({
+    height: 'calc(100% - 20px)',
+    width: 360,
+    left:10,
+    bottom:10,
+    boxSizing:'border-box',
+    background:'#fff',
+    padding:10,
+    borderRadius:10,
+    border:'1px solid #D1D1D1',
+    backgroundL:'#fff',
+    position:'absolute',
+    overflowX:'hidden',
+    overflowY:'auto',
     display:'flex',
-    justifyContent:'center',
+    flexDirection:'column',
+    justifyContent:'flex-start',
     alignItems:'center',
+    flexWrap:'nowrap',
+    boxShadow:'1px 3px 14px rgba(0,0,0,.05)'
 });
 
 // REDUX MAPPING //

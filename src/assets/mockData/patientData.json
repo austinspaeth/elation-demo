@@ -2,10 +2,10 @@
     "personalData":{
         "firstName":"Test",
         "lastName":"Patient",
-        "dob":"473399468000",
+        "dob":473399468000,
         "insurance":"Providence Choice",
         "provider":"Test Doctor, MD",
-        "avatar":"/assets/img/patient-avatar.png"
+        "avatar":"/assets/img/patient-avatar.jpg"
     },
     "allergies":[
         "Tylenol"
