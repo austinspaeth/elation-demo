@@ -30,5 +30,7 @@ const view = (state = null, action) => {
 
 // COMBINE REDUCERS //
 export default {
-	theme
+    page,
+	theme,
+    view
 };
