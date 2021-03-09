@@ -15,7 +15,7 @@ const Profile:FunctionComponent<TSProps> = (props) => {
 
 
 	return (
-		<ProfileContainer>
+		<ProfileContainer tabIndex={1}>
             {props.user?.personalData?.firstName} {props.user?.personalData?.lastName}
             <Avatar src={props.user?.personalData?.avatar} alt={'Your avatar image'} />
             <Carat />
@@ -31,6 +31,7 @@ const ProfileContainer = styled.div({
     position:'relative',
     fontSize:14,
     fontWeight:600,
+    outline:0,
     color:'#fff',
     cursor:'pointer',
     ':hover':{

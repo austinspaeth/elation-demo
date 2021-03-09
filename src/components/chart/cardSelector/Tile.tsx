@@ -16,7 +16,7 @@ type TSProps = {
 const Tile:FunctionComponent<TSProps> = (props) => {
 
 	return (
-		<TileContainer>
+		<TileContainer tabIndex={1}>
             <Icon>
                 {/* @ts-ignore */}
                 <Svg viewBox={props.viewBox} dangerouslySetInnerHTML={{ __html: props.svg}} />
@@ -38,10 +38,20 @@ const TileContainer = styled.div((props) => ({
     justifyContent:'center',
     alignItems:'center',
     cursor:'pointer',
+    outline:0,
     background:'#fdfdff',
     border:'1px solid #e4e5ea',
     transition:'all .2s ease-in-out',
     ':hover':{
+        border:'1px solid #50B2D1',
+        '> *':{
+            color: props.theme.brand,
+            '> *':{
+                fill: props.theme.brand
+            }
+        }
+    },
+    ':focus':{
         border:'1px solid #50B2D1',
         '> *':{
             color: props.theme.brand,

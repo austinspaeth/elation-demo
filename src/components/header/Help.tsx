@@ -16,7 +16,7 @@ const Help:FunctionComponent<TSProps> = (props) => {
 	const [ui, setUi] = useState();
 
 	return (
-		<HelpContainer>
+		<HelpContainer tabIndex={1}>
             Help
             <Carat />
 		</HelpContainer>
@@ -29,11 +29,15 @@ const HelpContainer = styled.div({
     justifyContent:'flex-start',
     alignItems:'center',
     color:'#fff',
+    outline:0,
     fontSize:14,
     opacity:.7,
     cursor:'pointer',
     transition:'opacity .2s ease-in-out',
     ':hover':{
+        opacity:1,
+    },
+    ':focus':{
         opacity:1,
     }
 });

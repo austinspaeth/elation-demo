@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from "react";
+import React, {FunctionComponent, useRef} from "react";
 
 // REDUX //
 import { connect } from "react-redux";
@@ -16,12 +16,18 @@ type TSProps = {
 
 const Sidebar:FunctionComponent<TSProps> = (props) => {
 
+    const allergyRef = useRef<HTMLInputElement>(null);
+
+    const scrollToAllergies = () => {
+        allergyRef.current.scrollIntoView();
+    }
+
 	return (
 		<SidebarContainer>
-            <PassportPreview />
+            <PassportPreview showAllergy={() => scrollToAllergies()} />
             <Appointments />
             <Dropdown label={'Allergies'}>
-                <AllergyList>
+                <AllergyList ref={allergyRef}>
                     {props.patient?.allergies.length === 0 && <NothingHere>No known allergies</NothingHere>}
                     {props.patient?.allergies.map((allergy) => {
                         return (
@@ -92,7 +98,7 @@ const Allergy = styled.div((props) => ({
     borderRadius:45,
     border:'1px solid #e4a4a4',
     background:'#f9ecec',
-    color:'#ca5050',
+    color:'#C43B3B',
     display:'flex',
     paddingRight:36,
     position:'relative',
@@ -101,7 +107,7 @@ const Allergy = styled.div((props) => ({
 }));
 const Delete = styled.div((props) => ({
     color:'#fff',
-    background:'#ca5050',
+    background:'#C43B3B',
     width:20,
     height:20,
     borderRadius:45,

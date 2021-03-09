@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import styled from 'styled-components';
 
 type TSProps = {
+    action: Function
     blue?:boolean,
     customStyles?:any,
     label:string,
@@ -16,7 +17,7 @@ type TSProps = {
 const Button:FunctionComponent<TSProps> = (props) => {
 
 	return (
-		<ButtonContainer style={{...props.customStyles}} blue={props.blue}>
+		<ButtonContainer onKeyDown={(e) => e.key === 'Enter' && props.action()} onClick={() => props.action()} tabIndex={1} style={{...props.customStyles}} blue={props.blue}>
             {props.label}
 		</ButtonContainer>
 	)
@@ -30,14 +31,18 @@ const ButtonContainer = styled.div((props) => ({
     background: props.blue ? '#E5F5FA' : '#F9F9FA',
     display:'flex',
     fontSize:14,
+    outline:0,
     justifyContent:'center',
     alignItems:'center',
     textAlign:'center',
-    color: props.blue ? '#0092BF':'#787F81',
+    color: props.blue ? '#00799E':'#676E6F',
     cursor:'pointer',
     transition:'border .2s ease-in-out',
     ':hover':{
-        border:props.blue ? '1px solid #0092bf':'1px solid #787f81',
+        border:props.blue ? '1px solid #00799E':'1px solid #676E6F',
+    },
+    ':focus':{
+        border:props.blue ? '1px solid #00799E':'1px solid #676E6F',
     }
 }));
 
