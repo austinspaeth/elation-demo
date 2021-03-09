@@ -1,8 +1,10 @@
-import { SET_PAGE, SET_PATIENT, SET_THEME, SET_USER, SET_VIEW } from './Constants';
+import { SET_CARD, SET_FULLSCREEN, SET_PAGE, SET_PATIENT, SET_THEME, SET_USER, SET_VIEW } from './Constants';
 
 export const setTheme = (theme) => ({type: SET_THEME, theme:theme});
 export const setView = (view) => ({type: SET_VIEW, view:view});
 export const setPage = (page) => ({type: SET_PAGE, page:page});
+export const setCard = (card) => ({type: SET_CARD, card:card});
+export const setFullScreen = (boolean) => ({type: SET_FULLSCREEN, fullScreen:boolean});
 export const setUser = (userObject) => ({type: SET_USER, user:userObject});
 export const setPatient = (patientObject) => ({type: SET_PATIENT, patient:patientObject});
 export const demoInit = () => {

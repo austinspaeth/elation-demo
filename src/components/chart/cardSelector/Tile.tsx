@@ -2,12 +2,15 @@ import React, {FunctionComponent, useState} from "react";
 
 // REDUX //
 import { connect } from "react-redux";
+import { setCard } from '../../../redux/Actions';
 
 // COMPONENTS //
 import styled from 'styled-components';
 
 type TSProps = {
+    card:string,
     label:string,
+    setCard:Function,
     svg:string,
 	theme:string,
     viewBox:string,
@@ -16,12 +19,12 @@ type TSProps = {
 const Tile:FunctionComponent<TSProps> = (props) => {
 
 	return (
-		<TileContainer label={props.label} tabIndex={1}>
+		<TileContainer onClick={() => props.setCard(props.label)} onKeyDown={(e) => e.key === 'Enter' && props.setCard(props.label)} current={props.card} label={props.label} tabIndex={1}>
             <Icon>
                 {/* @ts-ignore */}
-                <Svg viewBox={props.viewBox} dangerouslySetInnerHTML={{ __html: props.svg}} />
+                <Svg current={props.card} label={props.label} viewBox={props.viewBox} dangerouslySetInnerHTML={{ __html: props.svg}} />
             </Icon>
-            <Label>{props.label}</Label>
+            <Label current={props.card} label={props.label}>{props.label}</Label>
 		</TileContainer>
 	)
 }
@@ -39,8 +42,8 @@ const TileContainer = styled.div((props) => ({
     alignItems:'center',
     cursor:'pointer',
     outline:0,
-    background:'#fdfdff',
-    border:'1px solid #e4e5ea',
+    background: props.current == props.label ? '#E1EDF1':'#fdfdff',
+    border: props.current == props.label ? '1px solid #50B2D1':'1px solid #e4e5ea',
     transition:'all .2s ease-in-out',
     ':hover':{
         border:'1px solid #50B2D1',
@@ -80,25 +83,26 @@ const Label = styled.div((props) => ({
     display:'flex',
     justifyContent:'center',
     alignItems:'center',
-    color: '#707277',
+    color: props.current == props.label ? props.theme.accessibleBrand : '#707277',
     transition:'color .2s ease-in-out',
 }));
 const Svg = styled.svg((props) => ({
     height:'100%',
-    fill: '#707277',
+    fill: props.current == props.label ? props.theme.accessibleBrand :'#707277',
     transition:'fill .2s ease-in-out',
 }));
 
 // REDUX MAPPING //
 const mapStateToProps = (state) => {
 	return {
+        card: state.card,
 		theme: state.theme
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		
+        setCard: (card) => dispatch(setCard(card))
 	};
 };
 

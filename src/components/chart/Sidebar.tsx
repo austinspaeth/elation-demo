@@ -10,6 +10,7 @@ import Appointments from './sidebar/Appointments';
 import Dropdown from '../ui/Dropdown';
 
 type TSProps = {
+    fullScreen:boolean,
     patient:any,
 	theme:string
 }
@@ -23,7 +24,7 @@ const Sidebar:FunctionComponent<TSProps> = (props) => {
     }
 
 	return (
-		<SidebarContainer>
+		<SidebarContainer fullScreen={props.fullScreen}>
             <PassportPreview showAllergy={() => scrollToAllergies()} />
             <Appointments />
             <Dropdown label={'Allergies'}>
@@ -67,7 +68,8 @@ const Sidebar:FunctionComponent<TSProps> = (props) => {
 }
 
 // STYLED COMPONENTS //
-const SidebarContainer = styled.div({
+const SidebarContainer = styled.div((props) => ({
+    transform: props.fullScreen && 'translateX(-100%)',
     height: 'calc(100% - 20px)',
     width: 360,
     left:10,
@@ -85,8 +87,9 @@ const SidebarContainer = styled.div({
     justifyContent:'flex-start',
     alignItems:'center',
     flexWrap:'nowrap',
-    boxShadow:'1px 3px 14px rgba(0,0,0,.05)'
-});
+    boxShadow:'1px 3px 14px rgba(0,0,0,.05)',
+    transition: 'transform .5s ease-in-out'
+}));
 const AllergyList = styled.div((props) => ({
     display:'flex',
     flexWrap:'wrap',
@@ -187,6 +190,7 @@ const Code = styled.div((props) => ({
 // REDUX MAPPING //
 const mapStateToProps = (state) => {
 	return {
+        fullScreen: state.fullScreen,
         patient: state.patient,
 		theme: state.theme
 	};

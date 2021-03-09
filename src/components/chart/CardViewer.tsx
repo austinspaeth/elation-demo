@@ -2,26 +2,31 @@ import React, {FunctionComponent, useState} from "react";
 
 // REDUX //
 import { connect } from "react-redux";
+import { setCard, setFullScreen } from '../../redux/Actions';
 
 // COMPONENTS //
 import styled from 'styled-components';
 
 type TSProps = {
+    card:string,
+    fullScreen: boolean,
+    setCard:Function,
+    setFullScreen:Function,
 	theme:string
 }
 
 const CardViewer:FunctionComponent<TSProps> = (props) => {
 
 	return (
-		<CardViewerContainer>
+		<CardViewerContainer card={props.card}>
             <TitleBar>
-                <Title>Visit Note</Title>
+                <Title>{props.card}</Title>
                 <Actions>
-                    <FullScreen tabIndex={1}>
-                        Full Screen
-                        <FSIcon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 239.7 239.8"><g id="KfsX6T.tif"><path d="M230.7,239.8H9a9,9,0,0,1-9-9V18A18.1,18.1,0,0,1,18,0H230.7a9,9,0,0,1,9,9V230.8A9,9,0,0,1,230.7,239.8ZM27.2,221.3H212.4a9,9,0,0,0,9-9V27.5a9,9,0,0,0-9-9.1H27.2a9.1,9.1,0,0,0-9,9.1V212.3A9,9,0,0,0,27.2,221.3Z"/><path d="M101.6,100.6l-.8.8a8.9,8.9,0,0,1-12.8,0L70.7,84.1a9,9,0,0,0-15.4,6.4v1.7a9,9,0,0,1-9.1,9H46a9,9,0,0,1-9.1-9V45.9a9,9,0,0,1,9.1-9H91.9a9,9,0,0,1,9.1,9h0A9.1,9.1,0,0,1,91.9,55H90.5a9,9,0,0,0-6.4,15.4l17.5,17.5A9,9,0,0,1,101.6,100.6Z"/><path d="M184.7,149.3v-1.8a9,9,0,0,1,9-9.1h0a9.1,9.1,0,0,1,9.1,9.1v46.2a9.1,9.1,0,0,1-9.1,9.1H147.8a9.1,9.1,0,0,1-9.1-9.1h0a9,9,0,0,1,9.1-9h1.5a9,9,0,0,0,6.3-15.5c-5.9-5.9-11.6-11.7-17.4-17.4a9.2,9.2,0,0,1-.1-12.8l.8-.7a9.1,9.1,0,0,1,12.9-.1l17.4,17.5A9.1,9.1,0,0,0,184.7,149.3Z"/></g></FSIcon>
+                    <FullScreen onClick={() => props.setFullScreen(!props.fullScreen)} onKeyDown={(e) => e.key === 'Enter' && props.setFullScreen(!props.fullScreen)} tabIndex={1}>
+                        {props.fullScreen && 'Close '}Full Screen
+                        <FSIcon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 239.7 239.8"><g id="KfsX6T.tif"><path d="M230.7,239.8H9a9,9,0,0,1-9-9V18A18.1,18.1,0,0,1,18,0H230.7a9,9,0,0,1,9,9V230.8A9,9,0,0,1,230.7,239.8ZM27.2,221.3H212.4a9,9,0,0,0,9-9V27.5a9,9,0,0,0-9-9.1H27.2a9.1,9.1,0,0,0-9,9.1V212.3A9,9,0,0,0,27.2,221.3Z"/><path style={{display: props.fullScreen && 'none'}} d="M101.6,100.6l-.8.8a8.9,8.9,0,0,1-12.8,0L70.7,84.1a9,9,0,0,0-15.4,6.4v1.7a9,9,0,0,1-9.1,9H46a9,9,0,0,1-9.1-9V45.9a9,9,0,0,1,9.1-9H91.9a9,9,0,0,1,9.1,9h0A9.1,9.1,0,0,1,91.9,55H90.5a9,9,0,0,0-6.4,15.4l17.5,17.5A9,9,0,0,1,101.6,100.6Z"/><path style={{display: props.fullScreen && 'none'}} d="M184.7,149.3v-1.8a9,9,0,0,1,9-9.1h0a9.1,9.1,0,0,1,9.1,9.1v46.2a9.1,9.1,0,0,1-9.1,9.1H147.8a9.1,9.1,0,0,1-9.1-9.1h0a9,9,0,0,1,9.1-9h1.5a9,9,0,0,0,6.3-15.5c-5.9-5.9-11.6-11.7-17.4-17.4a9.2,9.2,0,0,1-.1-12.8l.8-.7a9.1,9.1,0,0,1,12.9-.1l17.4,17.5A9.1,9.1,0,0,0,184.7,149.3Z"/></g></FSIcon>
                     </FullScreen>
-                    <CloseCard tabIndex={1}>
+                    <CloseCard onClick={() => props.setCard(null)} onKeyDown={(e) => e.key === 'Enter' && props.setCard(null)} tabIndex={1}>
                         Close Card
                         <TextIcon>×</TextIcon>
                     </CloseCard>
@@ -33,7 +38,8 @@ const CardViewer:FunctionComponent<TSProps> = (props) => {
 }
 
 // STYLED COMPONENTS //
-const CardViewerContainer = styled.section({
+const CardViewerContainer = styled.section((props) => ({
+    display: !props.card && 'none',
     width:'100%',
     height:'calc(100% - 80px)',
     boxSizing:'border-box',
@@ -42,7 +48,7 @@ const CardViewerContainer = styled.section({
     borderRadius:10,
     border:'1px solid #e4e5ea',
     boxShadow:'-1px 3px 14px rgba(0,0,0,.05)'
-});
+}));
 const TitleBar = styled.div({
     height:50,
     borderBottom:'1px solid #e4e5ea',
@@ -133,13 +139,16 @@ const FSIcon = styled.svg((props) => ({
 // REDUX MAPPING //
 const mapStateToProps = (state) => {
 	return {
+        card: state.card,
+        fullScreen: state.fullScreen,
 		theme: state.theme
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		
+		setCard: (card) => dispatch(setCard(card)),
+        setFullScreen: (boolean) => dispatch(setFullScreen(boolean))
 	};
 };
 

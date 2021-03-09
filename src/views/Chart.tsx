@@ -10,6 +10,7 @@ import CardSelector from '../components/chart/CardSelector';
 import CardViewer from '../components/chart/CardViewer';
 
 type TSProps = {
+    fullScreen:boolean,
 	theme:string
 }
 
@@ -24,7 +25,7 @@ const Chart:FunctionComponent<TSProps> = (props) => {
 	return (
 		<ChartContainer>
             <Sidebar />
-            <ContentContainer>
+            <ContentContainer fullScreen={props.fullScreen}>
                 <CardSelector />
                 <CardViewer />
             </ContentContainer>
@@ -46,8 +47,8 @@ const ChartContainer = styled.div({
     boxSizing:'border-box',
     padding:20
 });
-const ContentContainer = styled.div({
-    width:'calc(100% - 370px)',
+const ContentContainer = styled.div((props) => ({
+    width: props.fullScreen ? 'calc(100%)':'calc(100% - 370px)',
     height: 'calc(100% - 20px)',
     right:10,
     bottom:10,
@@ -58,11 +59,13 @@ const ContentContainer = styled.div({
     flexDirection:'column',
     justifyContent:'space-between',
     alignItems:'center',
-});
+    transition:'width .5s ease-in-out'
+}));
 
 // REDUX MAPPING //
 const mapStateToProps = (state) => {
 	return {
+        fullScreen: state.fullScreen,
 		theme: state.theme
 	};
 };
