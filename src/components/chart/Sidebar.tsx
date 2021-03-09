@@ -20,7 +20,7 @@ const Sidebar:FunctionComponent<TSProps> = (props) => {
             <PassportPreview />
             <Appointments />
             <Dropdown label={'Allergies'}>
-
+                Test
             </Dropdown>
             <Dropdown label={'Drug Intollerances'}>
 
