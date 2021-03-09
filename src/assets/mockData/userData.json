@@ -2,6 +2,6 @@
     "personalData":{
         "firstName":"Test",
         "lastName":"Doctor",
-        "avatar":"/assets/img/doctor-avatar.png"
+        "avatar":"/assets/img/doctor-avatar.jpg"
     }
 }

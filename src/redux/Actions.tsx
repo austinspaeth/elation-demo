@@ -16,6 +16,9 @@ export const demoInit = () => {
                 'Content-Type': 'application/json'
             }
         })
+        .then((userJSON) => 
+            userJSON.json()
+        )
         .then((userObject) => 
             dispatch(setUser(userObject))
         )
@@ -28,6 +31,9 @@ export const demoInit = () => {
                 'Content-Type': 'application/json'
             }
         })
+        .then((patientJSON) => 
+            patientJSON.json()
+        )
         .then((patientObject) => 
             dispatch(setPatient(patientObject))
         )

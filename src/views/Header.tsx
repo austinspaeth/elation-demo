@@ -7,6 +7,8 @@ import { connect } from "react-redux";
 import styled from 'styled-components';
 import Navigation from '../components/header/Navigation';
 import Search from '../components/header/Search';
+import Profile from '../components/header/Profile';
+import Help from '../components/header/Help';
 
 type TSProps = {
 	theme:string
@@ -23,7 +25,8 @@ const Header:FunctionComponent<TSProps> = (props) => {
                 <Search />
             </LeftContent>
             <RightContent>
-
+                <Profile />
+                <Help />
             </RightContent>
 		</HeaderContainer>
 	)
