@@ -47,7 +47,17 @@ const ChartContainer = styled.div({
     padding:20
 });
 const ContentContainer = styled.div({
-    
+    width:'calc(100% - 370px)',
+    height: 'calc(100% - 20px)',
+    right:10,
+    bottom:10,
+    position:'absolute',
+    paddingLeft:20,
+    boxSizing:'border-box',
+    display:'flex',
+    flexDirection:'column',
+    justifyContent:'space-between',
+    alignItems:'center',
 });
 
 // REDUX MAPPING //
