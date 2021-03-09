@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 // COMPONENTS //
 import styled from 'styled-components';
 import PassportPreview from './sidebar/PassportPreview';
+import Appointments from './sidebar/Appointments';
+import Dropdown from '../ui/Dropdown';
 
 type TSProps = {
 	theme:string
@@ -16,6 +18,19 @@ const Sidebar:FunctionComponent<TSProps> = (props) => {
 	return (
 		<SidebarContainer>
             <PassportPreview />
+            <Appointments />
+            <Dropdown label={'Allergies'}>
+
+            </Dropdown>
+            <Dropdown label={'Drug Intollerances'}>
+
+            </Dropdown>
+            <Dropdown label={'Problem List'}>
+
+            </Dropdown>
+            <Dropdown label={'History'}>
+
+            </Dropdown>
 		</SidebarContainer>
 	)
 }
