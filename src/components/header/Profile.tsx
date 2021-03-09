@@ -30,7 +30,14 @@ const ProfileContainer = styled.div({
     alignItems:'center',
     position:'relative',
     fontSize:14,
+    fontWeight:600,
     color:'#fff',
+    cursor:'pointer',
+    ':hover':{
+        '> *':{
+            opacity:1,
+        }
+    }
 });
 const Avatar = styled.img({
     height:30,

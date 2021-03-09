@@ -25,8 +25,9 @@ const Header:FunctionComponent<TSProps> = (props) => {
                 <Search />
             </LeftContent>
             <RightContent>
-                <Profile />
                 <Help />
+                <Divider />
+                <Profile />
             </RightContent>
 		</HeaderContainer>
 	)
@@ -62,7 +63,9 @@ const LeftContent = styled.div({
     alignItems:'center',
 });
 const RightContent = styled.div({
-    display:'flex'
+    display:'flex',
+    justifyContent:'flex-end',
+    alignItems:'center',
 });
 
 // REDUX MAPPING //
