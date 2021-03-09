@@ -46,7 +46,7 @@ module.exports = {
 			{ test: /\.js$/, exclude: /node_modules/, use: { loader: "babel-loader" } },
 			{ test: /\.css$/, use: ["style-loader", "css-loader"] },
 			{ test: /\.(gif|png|apng|jpe?g|svg|)$/i, use: [ 'file-loader', { loader: 'image-webpack-loader' } ] },
-			{ test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/, exclude: /node_modules/, use: { loader: 'url-loader?importLoaders=1&limit=100000' } }
+			{ test: /\.(jpe|jpg|woff|woff2|eot|otf|ttf|svg)(\?.*$|$)/, exclude: /node_modules/, use: { loader: 'url-loader?importLoaders=1&limit=100000' } }
 		]		
 	},
 	resolve: {

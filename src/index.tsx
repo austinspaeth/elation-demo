@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import configureStore from "./redux/Store";
 
 // COMPONENTS //
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/es/integration/react';
 
 const { persistor, store } = configureStore();
@@ -19,7 +19,8 @@ ReactDOM.render(
 		 <PersistGate loading={null} persistor={persistor}>
 			<BrowserRouter>
 				<Switch>
-                    <Route path="/" render={() => (<App view={'app'} />) } />
+                    <Route path={'/chart/:patient'} exact render={(data) => (<App page={data.match.params.patient} view={'chart'} />) } />
+                    <Redirect to={'/chart/test-patient'} />
 				</Switch>
 			</BrowserRouter>
 		</PersistGate>

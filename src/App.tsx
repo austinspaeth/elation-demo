@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {  } from './redux/Actions';
 
 // VIEWS //
+import Header from './views/Header';
 
 // COMPONENTS //
 import { ThemeProvider } from 'styled-components';
@@ -23,7 +24,7 @@ const App:FunctionComponent<TSProps> = (props) => {
         default:
             return (
                 <ThemeProvider theme={props.theme}>
-				
+                    <Header />
                 </ThemeProvider>
             );
     }
