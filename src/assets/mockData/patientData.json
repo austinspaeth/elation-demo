@@ -5,7 +5,7 @@
         "dob":473399468000,
         "insurance":"Providence Choice",
         "provider":"Test Doctor, MD",
-        "avatar":"/assets/img/patient-avatar.jpg"
+        "avatar":"https://austinspaeth.github.io/elation-demo/assets/img/patient-avatar.jpg"
     },
     "allergies":[
         "Tylenol"

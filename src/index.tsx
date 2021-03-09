@@ -19,8 +19,7 @@ ReactDOM.render(
 		 <PersistGate loading={null} persistor={persistor}>
 			<BrowserRouter>
 				<Switch>
-                    <Route path={'/chart/:patient'} exact render={(data) => (<App passedPage={data.match.params.patient} passedView={'chart'} />) } />
-                    <Redirect to={'/chart/test-patient'} />
+                    <Route path={'/'} render={() => (<App passedPage={'test-patient'} passedView={'chart'} />) } />
 				</Switch>
 			</BrowserRouter>
 		</PersistGate>

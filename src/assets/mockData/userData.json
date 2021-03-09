@@ -2,6 +2,6 @@
     "personalData":{
         "firstName":"Test",
         "lastName":"Doctor",
-        "avatar":"/assets/img/doctor-avatar.jpg"
+        "avatar":"https://austinspaeth.github.io/elation-demo/assets/img/doctor-avatar.jpg"
     }
 }
