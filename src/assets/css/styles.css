@@ -1,26 +1,4 @@
-@font-face {
-	font-family: 'Helvetica';
-	font-style: normal;
-    font-display: block;
-	font-weight: 400;
-	src: url('./fonts/HelveticaNeue-Regular.otf') format('opentype');
-}
-
-@font-face {
-	font-family: 'Helvetica';
-	font-style: normal;
-    font-display: block;
-	font-weight: 600;
-	src: url('./fonts/HelveticaNeue-Medium.otf') format('opentype');
-}
-
-@font-face {
-	font-family: 'Helvetica';
-	font-style: normal;
-    font-display: block;
-	font-weight: 800;
-	src:  url('./fonts/HelveticaNeue-Bold.otf') format('opentype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
 html{
 	padding:0px;
@@ -36,7 +14,7 @@ body{
 	overflow-x:hidden;
     overflow-y:hidden;
     height:100%;
-	font-family:'Helvetica';
+	font-family:'Open Sans';
 	background:#F4F5F5;
 }
 

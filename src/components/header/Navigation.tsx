@@ -45,7 +45,6 @@ const NavigationItem = styled.div((props) => ({
     color:'#fff',
     fontSize:14,
     fontWeight: props.active ? 600 : 400,
-    marginTop: props.active ? -1 : 0,
     marginRight:15,
     opacity: props.active ? 1 : .7,
     textDecoration:'none',
