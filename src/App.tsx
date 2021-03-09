@@ -6,6 +6,7 @@ import { setPage, setView, demoInit } from './redux/Actions';
 
 // VIEWS //
 import Header from './views/Header';
+import Chart from './views/Chart';
 
 // COMPONENTS //
 import { ThemeProvider } from 'styled-components';
@@ -40,6 +41,13 @@ const App:FunctionComponent<TSProps> = (props) => {
     }, [props.view, props.page]);
 
     switch(props.view){
+        case 'chart':
+            return (
+                <ThemeProvider theme={props.theme}>
+                    <Header />
+                    <Chart />
+                </ThemeProvider>
+            );
         default:
             return (
                 <ThemeProvider theme={props.theme}>
