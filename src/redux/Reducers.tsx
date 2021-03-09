@@ -1,4 +1,4 @@
-import { SET_PAGE, SET_THEME, SET_VIEW } from './Constants';
+import { SET_PAGE, SET_PATIENT, SET_THEME, SET_USER, SET_VIEW } from './Constants';
 import { defaultStyles } from '../assets/mockData/defaultStyles';
 
 const page = (state = null, action) => {
@@ -10,10 +10,28 @@ const page = (state = null, action) => {
 	}
 };
 
+const patient = (state = null, action) => {
+	switch (action.type) {
+		case SET_PATIENT:
+			return action.patient;
+		default:
+			return state;
+	}
+};
+
 const theme = (state = defaultStyles, action) => {
 	switch (action.type) {
 		case SET_THEME:
 			return action.theme;
+		default:
+			return state;
+	}
+};
+
+const user = (state = null, action) => {
+	switch (action.type) {
+		case SET_USER:
+			return action.user;
 		default:
 			return state;
 	}
@@ -31,6 +49,8 @@ const view = (state = null, action) => {
 // COMBINE REDUCERS //
 export default {
     page,
+    patient,
 	theme,
+    user,
     view
 };
