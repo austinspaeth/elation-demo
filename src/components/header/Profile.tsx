@@ -38,6 +38,14 @@ const ProfileContainer = styled.div({
         '> *':{
             opacity:1,
         }
+    },
+    ':focus':{
+        '> *':{
+            opacity:1,
+        }
+    },
+    '@media(max-width:850px)':{
+        fontSize:0,
     }
 });
 const Avatar = styled.img({
@@ -45,6 +53,9 @@ const Avatar = styled.img({
     width:30,
     marginLeft:6,
     borderRadius:45,
+    '@media(max-width:850px)':{
+        marginLeft:15,
+    }
 });
 const Carat = styled.div({
     width:0,

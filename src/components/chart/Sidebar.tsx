@@ -11,6 +11,7 @@ import Dropdown from '../ui/Dropdown';
 
 type TSProps = {
     fullScreen:boolean,
+    main:boolean,
     patient:any,
 	theme:string
 }
@@ -24,7 +25,7 @@ const Sidebar:FunctionComponent<TSProps> = (props) => {
     }
 
 	return (
-		<SidebarContainer fullScreen={props.fullScreen}>
+		<SidebarContainer main={props.main} fullScreen={props.fullScreen}>
             <PassportPreview showAllergy={() => scrollToAllergies()} />
             <Appointments />
             <Dropdown label={'Allergies'}>
@@ -88,7 +89,22 @@ const SidebarContainer = styled.div((props) => ({
     alignItems:'center',
     flexWrap:'nowrap',
     boxShadow:'1px 3px 14px rgba(0,0,0,.05)',
-    transition: 'transform .5s ease-in-out'
+    transition: 'transform .5s ease-in-out',
+    '@media(max-width:850px)':{
+        position:'relative',
+        display:props.main ? 'none':'flex',
+        height:'initial',
+        bottom:'initial',
+        left:'initial',
+        border:'none',
+        width:'100%',
+        padding:1,
+        marginTop:15,
+        boxShadow:'none',
+        boxSizing:'border-box',
+        borderRadius:0,
+        transform:'translate(0%)',
+    }
 }));
 const AllergyList = styled.div((props) => ({
     display:'flex',

@@ -50,12 +50,18 @@ const Logo = styled.svg({
     fill:'#fff',
     height:25,
     marginTop:-6,
+    '@media(max-width:850px)':{
+        display:'none',
+    }
 });
 const Divider = styled.div({
     background:'#6ABFD9',
     width:1,
     height:28,
-    margin:'0px 20px'
+    margin:'0px 20px',
+    '@media(max-width:850px)':{
+        display:'none',
+    }
 });
 const LeftContent = styled.div({
     display:'flex',

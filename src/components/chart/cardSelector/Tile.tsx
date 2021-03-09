@@ -36,9 +36,9 @@ const TileContainer = styled.div((props) => ({
     minWidth:70,
     marginRight:6,
     borderRadius:10,
-    display:'flex',
     flexDirection:'column',
     justifyContent:'center',
+    display: props.label == 'Patient' ? 'none' : 'flex',
     alignItems:'center',
     cursor:'pointer',
     outline:0,
@@ -69,6 +69,9 @@ const TileContainer = styled.div((props) => ({
         boxShadow: props.label === 'More' && '10px 0px #f2f3f3',
         background:props.label === 'More' && '#fff',
         transform:props.label === 'More' &&'scale(1.055)'
+    },
+    '@media(max-width:850px)':{
+        display:'flex',
     }
 }));
 const Icon = styled.div({

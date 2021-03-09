@@ -24,7 +24,7 @@ const Chart:FunctionComponent<TSProps> = (props) => {
 
 	return (
 		<ChartContainer>
-            <Sidebar />
+            <Sidebar main={true} />
             <ContentContainer fullScreen={props.fullScreen}>
                 <CardSelector />
                 <CardViewer />
@@ -59,7 +59,10 @@ const ContentContainer = styled.div((props) => ({
     flexDirection:'column',
     justifyContent:'space-between',
     alignItems:'center',
-    transition:'width .5s ease-in-out'
+    transition:'width .5s ease-in-out',
+    '@media(max-width:850px)':{
+        width:'100%'
+    }
 }));
 
 // REDUX MAPPING //

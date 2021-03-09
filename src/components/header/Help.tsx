@@ -39,6 +39,9 @@ const HelpContainer = styled.div({
     },
     ':focus':{
         opacity:1,
+    },
+    '@media(max-width:580px)':{
+       display:'none',
     }
 });
 const Carat = styled.div({

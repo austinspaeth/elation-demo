@@ -55,6 +55,15 @@ const SearchInput = styled.div((props) => ({
         '~ label':{
             display:'none',
         }
+    },
+    '@media(max-width:650px)':{
+        maxWidth:220,
+    },
+    '@media(max-width:500px)':{
+        maxWidth:165,
+    },
+    '@media(max-width:455px)':{
+        display:'none'
     }
 }));
 const Label = styled.label((props) => ({
@@ -65,7 +74,10 @@ const Label = styled.label((props) => ({
     top:8,
     left:15,
     display:props.searchText ? 'none':'flex',
-    color:'rgba(255,255,255,.8)'
+    color:'rgba(255,255,255,.8)',
+    '@media(max-width:455px)':{
+        display:'none'
+    }
 }));
 
 // REDUX MAPPING //
