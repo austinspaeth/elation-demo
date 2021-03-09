@@ -70,7 +70,7 @@ const Sidebar:FunctionComponent<TSProps> = (props) => {
 
 // STYLED COMPONENTS //
 const SidebarContainer = styled.div((props) => ({
-    transform: props.fullScreen && 'translateX(-100%)',
+    transform: props.fullScreen && 'translateX(-104%)',
     height: 'calc(100% - 20px)',
     width: 360,
     left:10,

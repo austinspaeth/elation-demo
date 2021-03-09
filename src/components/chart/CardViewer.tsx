@@ -20,7 +20,7 @@ const CardViewer:FunctionComponent<TSProps> = (props) => {
 
 	return (
 		<CardViewerContainer card={props.card}>
-            <TitleBar>
+            <TitleBar fullScreen={props.fullScreen}>
                 <Title>{props.card}</Title>
                 <Actions>
                     <FullScreen onClick={() => props.setFullScreen(!props.fullScreen)} onKeyDown={(e) => e.key === 'Enter' && props.setFullScreen(!props.fullScreen)} tabIndex={1}>
@@ -49,12 +49,15 @@ const CardViewerContainer = styled.section((props) => ({
     height:'calc(100% - 80px)',
     boxSizing:'border-box',
     padding:10,
+    paddingTop:50,
     background:'#fdfdff',
     borderRadius:10,
     border:'1px solid #e4e5ea',
-    boxShadow:'-1px 3px 14px rgba(0,0,0,.05)'
+    boxShadow:'-1px 3px 14px rgba(0,0,0,.05)',
+    overflowX:'hidden',
+    overflowY:'auto',
 }));
-const TitleBar = styled.div({
+const TitleBar = styled.div((props) => ({
     height:50,
     borderBottom:'1px solid #e4e5ea',
     paddingLeft:10,
@@ -63,13 +66,20 @@ const TitleBar = styled.div({
     background:'#fff',
     display:'flex',
     justifyContent:'space-between',
+    top:151,
     alignItems:'center',
-    width:'calc(100% + 20px)',
+    //width:'calc(100% + 20px)',
     marginLeft:-10,
     marginTop:-10,
     borderTopLeftRadius:10,
     borderTopRightRadius:10,
-});
+    position:'fixed',
+    width: props.fullScreen ? 'calc(100% - 22px)' : 'calc(100% - 392px)',
+    zIndex:2,
+    '@media(max-width:850px)':{
+        width: 'calc(100% - 22px)'
+    }
+}));
 const Title = styled.h1((props) => ({
     fontSize:16,
     fontWeight:600,

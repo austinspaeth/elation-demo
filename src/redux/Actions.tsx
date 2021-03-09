@@ -15,7 +15,9 @@ export const demoInit = () => {
         fetch( userSource, {
             method: 'GET',
             headers: { 
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'mode': 'cors',
+                'cache': 'no-cache'
             }
         })
         .then((userJSON) => 
@@ -30,7 +32,9 @@ export const demoInit = () => {
         fetch( patientSource, {
             method: 'GET',
             headers: { 
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'mode': 'cors',
+                'cache': 'no-cache'
             }
         })
         .then((patientJSON) => 
