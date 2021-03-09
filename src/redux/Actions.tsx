@@ -10,8 +10,8 @@ export const setPatient = (patientObject) => ({type: SET_PATIENT, patient:patien
 export const demoInit = () => {
     return (dispatch) => {
         // THIS IS ALL FOR DEMO PURPOSES, NOT HOW THIS WOULD ACTUALLY BE IMPLEMENTED //
-        let userSource  = "https://austinspaeth.github.io/elation-demo/assets/mockData/userData.json";
-        let patientSource  = "https://austinspaeth.github.io/elation-demo/assets/mockData/patientData.json";
+        let userSource  = "https://s3-us-west-2.amazonaws.com/austinspaeth.com/demo/elation/assets/mockData/userData.json";
+        let patientSource  = "https://s3-us-west-2.amazonaws.com/austinspaeth.com/demo/elation/assets/mockData/patientData.json";
         fetch( userSource, {
             method: 'GET',
             headers: { 
