@@ -16,7 +16,7 @@ type TSProps = {
 const Tile:FunctionComponent<TSProps> = (props) => {
 
 	return (
-		<TileContainer tabIndex={1}>
+		<TileContainer label={props.label} tabIndex={1}>
             <Icon>
                 {/* @ts-ignore */}
                 <Svg viewBox={props.viewBox} dangerouslySetInnerHTML={{ __html: props.svg}} />
@@ -59,6 +59,13 @@ const TileContainer = styled.div((props) => ({
                 fill: props.theme.brand
             }
         }
+    },
+    '@media(max-width:1320px)':{
+        position: props.label === 'More' && 'fixed',
+        right: props.label === 'More' && 0,
+        boxShadow: props.label === 'More' && '10px 0px #f2f3f3',
+        background:props.label === 'More' && '#fff',
+        transform:props.label === 'More' &&'scale(1.055)'
     }
 }));
 const Icon = styled.div({
