@@ -1,0 +1,31 @@
+{
+    "personalData":{
+        "firstName":"Test",
+        "lastName":"Patient",
+        "dob":473399468000,
+        "insurance":"Providence Choice",
+        "provider":"Test Doctor, MD",
+        "avatar":"/assets/img/patient-avatar.jpg"
+    },
+    "allergies":[
+        "Tylenol"
+    ],
+    "drugIntollerances":[
+
+    ],
+    "problemList":[
+        {
+            "year":"2020",
+            "event":"Hip Pain",
+            "code":"[M79.609 (729.5)]"
+        },
+        {
+            "year":"2018",
+            "event":"Hypothyd",
+            "code":"[E03.9 (244.9)]"
+        }
+    ],
+    "history":[
+
+    ]
+}

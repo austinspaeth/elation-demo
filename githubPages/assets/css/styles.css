@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=block');
+
+html{
+	padding:0px;
+	margin:0px;
+	overflow-x:hidden;
+    overflow-y:hidden;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+}
+body{
+	padding:0px;
+	margin:0px;
+	overflow-x:hidden;
+    overflow-y:hidden;
+    height:100%;
+	font-family:'Open Sans';
+	background:#F4F5F5;
+}
+
+*{
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input[type=file], 
+input[type=file]::-webkit-file-upload-button { 
+    cursor: pointer; 
+}
+
+::-webkit-input-placeholder{
+	color:  #a0a0a0;
+	font-family: 'Avenir'
+}
+
+input{
+	-webkit-appearance:none;
+	appearance:none;
+	-webkit-touch-callout: all;
+    -webkit-user-select: all;
+    -khtml-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+}
+
+a{
+	text-decoration:none;
+	color:inherit;
+}
