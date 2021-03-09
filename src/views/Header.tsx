@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, {FunctionComponent, useState} from "react";
 
 // REDUX //

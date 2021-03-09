@@ -10,26 +10,18 @@ type TSProps = {
 	theme:string
 }
 
-const Template:FunctionComponent<TSProps> = (props) => {
-
-	// STATE //
-	const [ui, setUi] = useState();
+const Search:FunctionComponent<TSProps> = (props) => {
 
 	return (
-		<Container>
+		<SearchContainer>
 		
-		</Container>
+		</SearchContainer>
 	)
 }
 
 // STYLED COMPONENTS //
-const Container = styled.div({
-    height: '100%',
-    width: '100%',
-    position:'fixed',
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
+const SearchContainer = styled.div({
+
 });
 
 // REDUX MAPPING //
@@ -45,4 +37,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Template);
+export default connect(mapStateToProps,mapDispatchToProps)(Search);

@@ -10,23 +10,17 @@ type TSProps = {
 	theme:string
 }
 
-const Template:FunctionComponent<TSProps> = (props) => {
-
-	// STATE //
-	const [ui, setUi] = useState();
+const Navigation:FunctionComponent<TSProps> = (props) => {
 
 	return (
-		<Container>
+		<NavigationContainer>
 		
-		</Container>
+		</NavigationContainer>
 	)
 }
 
 // STYLED COMPONENTS //
-const Container = styled.div({
-    height: '100%',
-    width: '100%',
-    position:'fixed',
+const NavigationContainer = styled.div({
     display:'flex',
     justifyContent:'center',
     alignItems:'center',
@@ -45,4 +39,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Template);
+export default connect(mapStateToProps,mapDispatchToProps)(Navigation);

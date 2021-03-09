@@ -10,26 +10,21 @@ type TSProps = {
 	theme:string
 }
 
-const Template:FunctionComponent<TSProps> = (props) => {
+const Help:FunctionComponent<TSProps> = (props) => {
 
 	// STATE //
 	const [ui, setUi] = useState();
 
 	return (
-		<Container>
+		<HelpContainer>
 		
-		</Container>
+		</HelpContainer>
 	)
 }
 
 // STYLED COMPONENTS //
-const Container = styled.div({
-    height: '100%',
-    width: '100%',
-    position:'fixed',
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
+const HelpContainer = styled.div({
+
 });
 
 // REDUX MAPPING //
@@ -45,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Template);
+export default connect(mapStateToProps,mapDispatchToProps)(Help);

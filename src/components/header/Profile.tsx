@@ -10,26 +10,19 @@ type TSProps = {
 	theme:string
 }
 
-const Template:FunctionComponent<TSProps> = (props) => {
+const Profile:FunctionComponent<TSProps> = (props) => {
 
-	// STATE //
-	const [ui, setUi] = useState();
 
 	return (
-		<Container>
+		<ProfileContainer>
 		
-		</Container>
+		</ProfileContainer>
 	)
 }
 
 // STYLED COMPONENTS //
-const Container = styled.div({
-    height: '100%',
-    width: '100%',
-    position:'fixed',
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
+const ProfileContainer = styled.div({
+    
 });
 
 // REDUX MAPPING //
@@ -45,4 +38,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Template);
+export default connect(mapStateToProps,mapDispatchToProps)(Profile);
