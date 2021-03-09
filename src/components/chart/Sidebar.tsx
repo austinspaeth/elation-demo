@@ -38,6 +38,19 @@ const Sidebar:FunctionComponent<TSProps> = (props) => {
                 <AddMore>Add a drug intolerance</AddMore>
             </Dropdown>
             <Dropdown label={'Problem List'}>
+                <Ul>
+                    {props.patient?.problemList.map((problem) => {
+                        return (
+                        <Li key={problem.code}>
+                            <Dot>
+                                <Line />
+                            </Dot>
+                            <Year>{problem.year}</Year>
+                            <Event>{problem.event}</Event>
+                            <Code>{problem.code}</Code>
+                        </Li>)
+                    })}
+                </Ul>
                 <AddMore>Add a problem</AddMore>
             </Dropdown>
             <Dropdown label={'History'}>
@@ -111,6 +124,58 @@ const AddMore = styled.div((props) => ({
     borderBottom:'1px solid',
     color: props.theme.brand,
     marginBottom:20,
+}));
+const Ul = styled.div((props) => ({
+    lineHeight:'30px',
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'flex-start',
+    justifyContent:'center',
+    fontSize:13,
+}));
+const Dot = styled.div((props) => ({
+    width:8,
+    marginRight:10,
+    height:8,
+    borderRadius:45,
+    background:'#a5a6a7',
+    position:'relative',
+}));
+const Line = styled.span((props) => ({
+    background:'#a5a6a7',
+    width:2,
+    height:28,
+    opacity:.5,
+    left:3,
+    top:5,
+    position:'absolute',
+    
+}));
+const Li = styled.div((props) => ({
+    display:'flex',
+    alignItems:'center',
+    position:'relative',
+    fontSize:13,
+    color:props.theme.lightText,
+    ':last-child span':{
+        display:'none'
+    }
+}));
+const Year = styled.div((props) => ({
+    fontWeight:600,
+    marginRight:8,
+    color:props.theme.darkText,
+}));
+const Event = styled.div((props) => ({
+    color: props.theme.brand,
+    marginRight:8,
+    borderBottom:'1px solid',
+    height:23,
+    marginTop:-6,
+    cursor:'pointer',
+}));
+const Code = styled.div((props) => ({
+
 }));
 
 
