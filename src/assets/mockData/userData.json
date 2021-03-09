@@ -1,0 +1,7 @@
+{
+    "personalData":{
+        "firstName":"Test",
+        "lastName":"Doctor",
+        "avatar":"/assets/img/doctor-avatar.png"
+    }
+}
