@@ -76,6 +76,7 @@ const TitleBar = styled.div((props) => ({
     position:'fixed',
     width: props.fullScreen ? 'calc(100% - 22px)' : 'calc(100% - 392px)',
     zIndex:2,
+    transition:'width .5s ease-in-out',
     '@media(max-width:850px)':{
         width: 'calc(100% - 22px)'
     }
