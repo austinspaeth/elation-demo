@@ -1,9 +1,9 @@
 {
-	"name": "",
+	"name": "elation-concept",
 	"version": "1.0.0",
 	"main": "index.html",
 	"homepage": "./",
-	"repository": "https://github.com/austinspaeth/",
+	"repository": "https://github.com/austinspaeth/elation-concept",
 	"author": "Austin Spaeth <austinspaeth@msn.com>",
 	"private": true,
 	"scripts": {
