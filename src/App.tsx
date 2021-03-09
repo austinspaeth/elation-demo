@@ -2,7 +2,7 @@ import React, {FunctionComponent, useState, useEffect} from "react";
 
 // REDUX //
 import { connect } from 'react-redux';
-import {  } from './redux/Actions';
+import { setPage, setView } from './redux/Actions';
 
 // VIEWS //
 import Header from './views/Header';
@@ -14,11 +14,25 @@ import { ThemeProvider } from 'styled-components';
 import './assets/css/styles.css';
 
 type TSProps = {
-    theme: any
+    page:string,
+    passedPage: string,
+    passedView: string,
+    setPage: Function,
+    setView: Function,
+    theme:any,
 	view:string
 };
 
 const App:FunctionComponent<TSProps> = (props) => {
+
+    useEffect(() => {
+        if(props.page !== props.passedPage){
+            props.setPage(props.passedPage);
+        }
+        if(props.view !== props.passedView){
+            props.setView(props.passedView);
+        }
+    }, [props.view, props.page]);
 
     switch(props.view){
         default:
@@ -33,12 +47,17 @@ const App:FunctionComponent<TSProps> = (props) => {
 // REDUX MAPPINGS //
 const mapStateToProps = (state) => {
 	return {
-        theme: state.theme
+        page: state.page,
+        theme: state.theme,
+        view: state.view
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {};
+	return {
+        setPage: (page) => dispatch(setPage(page)),
+        setView: (view) => dispatch(setView(view))
+    };
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);
